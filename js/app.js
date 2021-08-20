@@ -1,6 +1,7 @@
 import { chord_diagram } from './chord.js';
 import { movieDurationGrowthLineChart } from './movieDurationGrowthLineChart.js';
 import { productionsTypePieChart } from './productionsTypePieChart.js';
+import { ratingTypeHorizontalBarChart } from './ratingTypeHorizontalBarChart.js';
 
 class StackBarChart extends dc.BarChart {
   legendables() {
@@ -80,9 +81,11 @@ d3.csv(
 
   let facts = crossfilter(original_dataset);
 
+  ratingTypeHorizontalBarChart(facts);
   productionsTypePieChart(facts);
   movieDurationGrowthLineChart(facts);
   chord_diagram(original_dataset);
+  
 
   dc.renderAll();
 });

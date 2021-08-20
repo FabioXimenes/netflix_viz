@@ -6,8 +6,6 @@ export function productionsTypePieChart(facts) {
 
   let productionsPieChart = dc.pieChart('#pie-chart');
 
-	console.log(productionsPieChart)
-
   productionsPieChart
     .width(400)
     .height(400)
