@@ -1,4 +1,6 @@
 import { chord_diagram } from './chord.js';
+import { movieDurationGrowthLineChart } from './movieDurationGrowthLineChart.js';
+import { productionsTypePieChart } from './productionsTypePieChart.js';
 
 class StackBarChart extends dc.BarChart {
   legendables() {
@@ -6,15 +8,6 @@ class StackBarChart extends dc.BarChart {
     return items.reverse();
   }
 }
-
-let width = 600;
-let height = 600;
-
-let yearsAddedStackBarChart = new StackBarChart("#years-release-chart");
-let ratingTypeBarChart = dc.rowChart("#rating-type-chart");
-let scoresScatterPlotChart = dc.scatterPlot("#scores-chart");
-let durationPerYearLineChart = dc.lineChart("#durationPerYear-line-chart");
-let productionsPieChart = dc.pieChart("#pie-chart");
 
 let map = L.map("mapid").setView([21.511116, -10.671271], 2);
 L.tileLayer(
@@ -85,5 +78,11 @@ d3.csv(
     original_dataset.push(d);
   }
 
+  let facts = crossfilter(original_dataset);
+
+  productionsTypePieChart(facts);
+  movieDurationGrowthLineChart(facts);
   chord_diagram(original_dataset);
+
+  dc.renderAll();
 });
