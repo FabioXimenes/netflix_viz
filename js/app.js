@@ -1,24 +1,11 @@
 import { chord_diagram } from './chord.js';
+import { map } from './map.js';
 import { movieDurationGrowthLineChart } from './movieDurationGrowthLineChart.js';
 import { productionsTypePieChart } from './productionsTypePieChart.js';
 import { ratingTypeHorizontalBarChart } from './ratingTypeHorizontalBarChart.js';
 import { productionsTypePerYearChart } from './stackBarChart.js';
 
-let map = L.map("mapid").setView([21.511116, -10.671271], 2);
-L.tileLayer(
-  "https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoianZpY3RvcnNvdXphIiwiYSI6ImNrZ2dzZnpwZTA0MnMycXF5dHk0ZTdweG8ifQ.ZIydKbNs6Ji-_Cligx2uAA",
-  {
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 5,
-    minZomm: 2,
-  }
-).addTo(map);
 
-// map.on('click', function () {
-//   idDimension.filterFunction(function(d) {
-//     return d != null;
-//   });
 
 d3.csv(
   "https://gist.githubusercontent.com/jvictorsouza/081f58b705455c737f818512ce985712/raw/e8bc5c6287f73463a1eba4d2190c085f6c528e2f/netflix_titles_enriched.csv"
@@ -75,6 +62,7 @@ d3.csv(
 
   let facts = crossfilter(original_dataset);
 
+  map(facts, original_dataset)
   productionsTypePerYearChart(facts);
   ratingTypeHorizontalBarChart(facts);
   productionsTypePieChart(facts);
