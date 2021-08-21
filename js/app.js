@@ -2,13 +2,7 @@ import { chord_diagram } from './chord.js';
 import { movieDurationGrowthLineChart } from './movieDurationGrowthLineChart.js';
 import { productionsTypePieChart } from './productionsTypePieChart.js';
 import { ratingTypeHorizontalBarChart } from './ratingTypeHorizontalBarChart.js';
-
-class StackBarChart extends dc.BarChart {
-  legendables() {
-    const items = super.legendables();
-    return items.reverse();
-  }
-}
+import { productionsTypePerYearChart } from './stackBarChart.js';
 
 let map = L.map("mapid").setView([21.511116, -10.671271], 2);
 L.tileLayer(
@@ -81,6 +75,7 @@ d3.csv(
 
   let facts = crossfilter(original_dataset);
 
+  productionsTypePerYearChart(facts);
   ratingTypeHorizontalBarChart(facts);
   productionsTypePieChart(facts);
   movieDurationGrowthLineChart(facts);

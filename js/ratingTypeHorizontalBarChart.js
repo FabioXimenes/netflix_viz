@@ -33,7 +33,7 @@ export function ratingTypeHorizontalBarChart(facts) {
 		.group(ratingTypeDimensionGroup)
 		.gap(2)
 		.ordinalColors(['#d62728'])
-		.on("filtered", function(chart,filter){
-			updateMarkers()
-		})
+		// .on("filtered", function(chart,filter){
+		// 	updateMarkers()
+		// })
 }
