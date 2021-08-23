@@ -13,6 +13,6 @@
   margin-top: 20px;
 }
 
-.dc-chart g.row text {
-  fill: black;
+#rating-type-chart, .dc-chart, g.row, text{
+  fill: black !important;
 }

@@ -1,3 +1,5 @@
+import { updateMarkers } from './map.js';
+
 export function ratingTypeHorizontalBarChart(facts) {
 	let ratingTypeDimension = facts.dimension(d => d.rating)
 	let ratingTypeDimensionGroup = ratingTypeDimension.group()
@@ -33,7 +35,7 @@ export function ratingTypeHorizontalBarChart(facts) {
 		.group(ratingTypeDimensionGroup)
 		.gap(2)
 		.ordinalColors(['#d62728'])
-		// .on("filtered", function(chart,filter){
-		// 	updateMarkers()
-		// })
+		.on("filtered", function(chart,filter){
+			updateMarkers()
+		})
 }

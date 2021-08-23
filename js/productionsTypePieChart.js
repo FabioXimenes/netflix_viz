@@ -1,4 +1,5 @@
-const reds = d3.schemeReds[9]
+import { updateMarkers } from './map.js';
+import { reds } from '../constants/colors.js';
 
 export function productionsTypePieChart(facts) {
 	let productionsTypeDimension = facts.dimension((d) => d.type);
@@ -25,5 +26,8 @@ export function productionsTypePieChart(facts) {
           "%"
         );
       });
-    });
+    })
+		.on("filtered", function(chart,filter){
+			updateMarkers()
+		});
 }

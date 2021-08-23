@@ -1,4 +1,6 @@
-const reds = d3.schemeReds[9]
+import { updateMarkers } from './map.js';
+
+import { reds } from '../constants/colors.js';
 
 class StackBarChart extends dc.BarChart {
   legendables() {
@@ -51,9 +53,9 @@ export function productionsTypePerYearChart(facts) {
     .renderHorizontalGridLines(true)
     .centerBar(true)
     .ordinalColors([reds[6], reds[3]])
-    // .on("filtered", function (chart, filter) {
-    //   updateMarkers();
-    // });
+    .on("filtered", function (chart, filter) {
+      updateMarkers();
+    });
 
 //   d3.selectAll("#years-release-chart g.row")
 //     .call(rowtip)
