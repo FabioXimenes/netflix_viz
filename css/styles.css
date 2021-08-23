@@ -13,7 +13,11 @@
   margin: auto;
 }
 
-.row div {
+.row .row-content {
+  min-width: 100%;
+}
+
+.row .row-content-map {
   min-width: 100%;
 }
 
@@ -23,8 +27,12 @@
 
 #mapid {
   margin: 0px;
-  width: 80%;
+  width: 70%;
   height: 500px;
+}
+
+#mapid .leaflet-popup  .leaflet-zoom-animated .leaflet-popup-content-wrapper .leaflet-popup-content {
+  max-width: fit-content !important;
 }
 
 #title {
