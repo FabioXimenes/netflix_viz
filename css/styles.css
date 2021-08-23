@@ -1,18 +1,48 @@
 #container {
-  background-color: black; 
+  background-color: #111111; 
+}
+
+#body {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.row div {
+  min-width: 100%;
+}
+
+.row div svg {
+  align-self: center;
 }
 
 #mapid {
   margin: 0px;
-  width: 850px;
-  height: 480px;
+  width: 80%;
+  height: 500px;
 }
 
 #title {
-  margin-left: 15px;
-  margin-top: 20px;
+  max-width: fit-content;
+  margin-left: 0px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: #a3171b; 
+  font-weight: 700;
+  padding: 10px;
+  background-color: #2221219d;
+  opacity: 0.8;
+  border-radius: 10px 0px  10px 0px;
+  font-family: 'Urbanist';
+  font-weight: 700;
+  font-style: italic;
 }
 
 #rating-type-chart, .dc-chart, g.row, text{
-  fill: black !important;
+  fill: white !important;
 }

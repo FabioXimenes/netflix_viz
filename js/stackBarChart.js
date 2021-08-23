@@ -41,7 +41,7 @@ export function productionsTypePerYearChart(facts) {
 
   let yearsAddedStackBarChart = new StackBarChart("#years-release-chart");
   yearsAddedStackBarChart
-    .width(950)
+    .width(800)
     .height(200)
     .margins({ top: 40, right: 50, bottom: 20, left: 50 })
     .dimension(addedYearDimension)
