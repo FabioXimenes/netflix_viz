@@ -4,6 +4,9 @@
 
 #body {
   width: 100%;
+  min-width: 850px;
+  overflow: auto;
+  padding: 0 10% 0 10%;
 }
 
 .row {
@@ -15,6 +18,67 @@
 
 .row .row-content {
   min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row .row-content #infoI {
+  font-family: 'Urbanist';
+  font-size: 20px;
+  height: fit-content;
+  color: white !important;
+  text-align: justify;
+  max-width: 20%;
+  border-left: 2px solid #a3171b;
+  padding: 5px;
+  margin: auto;
+}
+
+.row .row-content #infoII {
+  font-family: 'Urbanist';
+  font-size: 20px;
+  height: fit-content;
+  color: white !important;
+  text-align: justify;
+  max-width: 20%;
+  border-left: 2px solid #a3171b;
+  padding: 5px;
+  margin: auto;
+  visibility: visible;
+}
+
+.row .row-content p #name {
+  color: #a3171b;
+  font-weight: 600;
+}
+
+.row .row-content p #percentage {
+  color: #a3171b;
+  font-size: 30px;
+
+}
+
+@media (max-width:1300px) {
+  #body {
+    padding: 0 5% 0 5%;
+  }
+  
+  .row .row-content #years-release-chart {
+    align-self: center;
+    min-width: 100%;
+  }
+
+  .row .row-content #durationPerYear-line-chart {
+    align-self: center;
+    min-width: 100%;
+    margin: auto;
+  }
+
+  .row .row-content #infoII{
+    visibility: hidden;
+  }
+  
 }
 
 .row .row-content-map {
@@ -23,16 +87,26 @@
 
 .row div svg {
   align-self: center;
+  max-width: 100%;
+  margin: 20px;
 }
 
 #mapid {
-  margin: 0px;
-  width: 70%;
+  width: 100%;
   height: 500px;
+  margin: auto !important;
 }
 
 #mapid .leaflet-popup  .leaflet-zoom-animated .leaflet-popup-content-wrapper .leaflet-popup-content {
   max-width: fit-content !important;
+}
+
+#chord svg g {
+  width: 100% !important;
+  margin: auto;
+}
+#chord svg g  text {
+  font-family: 'Urbanist';
 }
 
 #title {
@@ -49,8 +123,10 @@
   font-family: 'Urbanist';
   font-weight: 700;
   font-style: italic;
+  align-self: flex-start;
 }
 
 #rating-type-chart, .dc-chart, g.row, text{
   fill: white !important;
+  font-family: 'Urbanist';
 }

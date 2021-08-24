@@ -3,6 +3,7 @@
   <head>
     <title>Netflix Viz</title>
     <meta charset="UTF-8" />
+    <link rel="icon" href="images/icon_browser.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -47,10 +48,10 @@
   <body style="background-color:#111111">
     <main role="main" class="container" style="width: 100%; max-width: 100%; padding: 0px;">
         <div id='header'>
-          <img src="./images/banner_and_logo.jpg" width="100%" height="500px" >
+          <img src="./images/banner_and_logo.jpg" width="100%" height="400px" >
         </div>
 
-        <div id='body' style="padding: 0 15% 0 15%;">
+        <div id='body'>
           <div class='row'>
             <div class='row-content-map' id='map-chart'>
               <h5 id='title'> Productions by country</h5>
@@ -60,38 +61,46 @@
           </div>
           
           <div class='row'>
-              <div class='row-content' id='years-release-chart'  class="col-6">
-                <h5 id='title'> Productions by release year</h5>
-              </div>
+            <h5 id='title'> Productions by release year</h5>
+            <div class='row-content'  class="col-6">
+              <div id='years-release-chart'></div>
+              <p id='infoII'>Over the years, the overall average of new productions was <span id='percentage'>65.23%</span> productions. </p>
+            </div>
           </div>
 
           <div class='row'>
-            <div class='row-content' id='rating-type-chart' class="col-6">
-              <h5 id='title'>Productions by rating type </h5>
+            <h5 id='title'>Productions by Parental Guidance </h5>
+            <div class='row-content' class="col-6">
+              <p id='infoI'>In general, productions with <span id='name'>ADULT</span> and <span id='name'>FREE</span> parental guidance occupy <span id='percentage'>36.9%</span> and <span id='percentage'>8.6%</span>, respectively.</p>
+              <div id='rating-type-chart'></div>
             </div>
           </div>
       
           <div class='row'>
-              <div class='row-content' id='durationPerYear-line-chart' class="col-6">
-                <h5 id='title'>Netflix movie watch time grow </h5>
-              </div>
+            <h5 id='title'>Netflix movie watch time grow </h5>
+            <div class='row-content' class="col-6">
+              <div id='durationPerYear-line-chart'></div>
+              <p id='infoII'>At the end of 2016, Netflix reported having reached the mark of 93.8 million subscribers, which represents an increase of 7.05 million subscribers in just the last three months of 2016.</p>
+            </div>
           </div>
       
           <div class='row'>
-              <div class='row-content' id='pie-chart' class="col-6">
-                <h5 id='title'>Productions types</h5>
-              </div>
+            <h5 id='title'>Productions types</h5>
+            <div class='row-content' class="col-6">
+              <div id='pie-chart'></div>
+            </div>
           </div>
           
           <div class='row'>
-            <div class='row-content' id='genre-score-bar-chart' class="col-6">
-              <h5 id='title'>Genres x Tomatometer Score</h5>
+            <h5 id='title'>Genres x Tomatometer Score</h5>
+            <div class='row-content' class="col-6">
+              <div id='genre-score-bar-chart'></div>
             </div>
         </div>
           
         <div class='row' id="chord">
-          <div>
-            <h5 id='title'>What genres do directors with more than 6 productions choose?</h5>
+          <h5 id='title'>What genres do directors with more than 6 productions choose?</h5>
+          <div class='row-content' class="col-6">
           </div>
         </div>
 

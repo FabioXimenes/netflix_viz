@@ -1,5 +1,5 @@
 export function movieDurationGrowthLineChart(facts) {
-  let width = 600
+  let width = 800
 
 	let dateAddedDimension = facts
     .dimension((d) => d.parsedDate)

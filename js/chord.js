@@ -1,6 +1,6 @@
 export function chord_diagram(dataset) {
-  let width = 600;
-  let height = 600;
+  let width = 500;
+  let height = 500;
 
   let result_genre = getDirectorGenreMatrix(dataset);
   let names = [...result_genre["genres"], "", ...result_genre["directors"], ""];
@@ -32,10 +32,10 @@ export function chord_diagram(dataset) {
   const svg = d3
     .select("#chord")
     .append("svg")
-    .attr("width", 800)
-    .attr("height", 800)
+    .attr("width", 600)
+    .attr("height", 600)
     .append("g")
-    .attr("transform", "translate(400,400)");
+    .attr("transform", "translate(300,300)");
 
   const chords = chord(result_genre["matrix"]);
 
