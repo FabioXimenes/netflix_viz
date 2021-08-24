@@ -1,11 +1,10 @@
 import { chord_diagram } from './chord.js';
+import { genreScoreBarChart } from './genreScoreBarChart.js';
 import { map } from './map.js';
 import { movieDurationGrowthLineChart } from './movieDurationGrowthLineChart.js';
 import { productionsTypePieChart } from './productionsTypePieChart.js';
 import { ratingTypeHorizontalBarChart } from './ratingTypeHorizontalBarChart.js';
 import { productionsTypePerYearChart } from './stackBarChart.js';
-
-
 
 d3.csv(
   "https://gist.githubusercontent.com/jvictorsouza/081f58b705455c737f818512ce985712/raw/e8bc5c6287f73463a1eba4d2190c085f6c528e2f/netflix_titles_enriched.csv"
@@ -50,6 +49,10 @@ d3.csv(
       d["rottentomatoes_critics_#reviews"] = sumNTomatometerReviews;
     } else {
       d.duration = +d.duration.split(" ")[0]; // Duration in minutes for movies only
+      d["rottentomatoes_audience_score"] = +d["rottentomatoes_audience_score"];
+      d["rottentomatoes_audience_#reviews"] = +d["rottentomatoes_audience_#reviews"];
+      d["rottentomatoes_tomatometer_score"] = +d["rottentomatoes_tomatometer_score"];
+      d["rottentomatoes_critics_#reviews"] = +d["rottentomatoes_critics_#reviews"];
     }
 
     d.id = id;
@@ -68,7 +71,7 @@ d3.csv(
   productionsTypePieChart(facts);
   movieDurationGrowthLineChart(facts);
   chord_diagram(original_dataset);
-  
+  genreScoreBarChart(original_dataset);
 
   dc.renderAll();
 });
