@@ -47,7 +47,7 @@ export function genreScoreBarChart(dataset) {
   var barChart = dc.rowChart("#genre-score-bar-chart");
   barChart
     .height(300)
-    .width(700)
+    .width(800)
     .margins({ top: 10, right: 50, bottom: 20, left: 100 })
     .labelOffsetX(-5)
     // .y(d3.scaleBand())
