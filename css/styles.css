@@ -28,7 +28,7 @@
   font-size: 20px;
   height: fit-content;
   color: white !important;
-  text-align: justify;
+  /* text-align: justify; */
   max-width: 20%;
   border-left: 2px solid #a3171b;
   padding: 5px;
@@ -57,7 +57,10 @@
 .row .row-content p #percentage {
   color: #a3171b;
   font-size: 26px;
+}
 
+.row .row-content #pie-chart {
+  min-width: 40% !important;
 }
 
 @media (max-width:1300px) {
@@ -84,6 +87,10 @@
 
   .row .row-content #rightInfo{
     visibility: hidden;
+  }
+
+  .row .row-content #pie-chart {
+    min-width: 60% !important;
   }
   
 }
@@ -141,6 +148,13 @@
 .dc-chart text.pie-slice{
   fill: black;
   font-weight: bold;
+}
+
+.dc-chart svg .dc-legend{
+  font-family: 'Urbanist';
+  font-size: 14px;
+  font-weight: 600;
+  margin: auto;
 }
 
 .toolTip {

@@ -9,9 +9,9 @@ export function productionsTypePieChart(facts) {
   let productionsPieChart = dc.pieChart('#pie-chart');
 
   productionsPieChart
-    .width(400)
-    .height(400)
-    .innerRadius(80)
+    .width(350)
+    .height(350)
+    .innerRadius(70)
     .dimension(productionsTypeDimension)
     .group(productionsGroup)
     .legend(dc.legend().highlightSelected(true))
@@ -19,14 +19,14 @@ export function productionsTypePieChart(facts) {
     .on("pretransition", function (chart) {
       chart.selectAll("text.pie-slice").text(function (d) {
         return (
-          d.data.key +
-          "\n" +
+          // d.data.key +
+          // "\n" +
           dc.utils.printSingleValue(
             ((d.endAngle - d.startAngle) / (2 * Math.PI)) * 100
           ) +
           "%"
         );
-      });
+      }).style("font-size", "15px");
     })
 		.on("filtered", function(chart,filter){
 			updateMarkers()
