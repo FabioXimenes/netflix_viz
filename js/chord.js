@@ -40,6 +40,7 @@ export function chord_diagram(dataset) {
   const chords = chord(result_genre["matrix"]);
 
   const group = svg.append("g").selectAll("g").data(chords.groups).join("g");
+  var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 
   //////////////////// Draw outer Arcs ///////////////////////
   ////////////////////////////////////////////////////////////
@@ -97,53 +98,76 @@ export function chord_diagram(dataset) {
       return names[i];
     });
 
-    // Hover functions
-    function onMouseOver(selected) {
-      let selectedIndices = [];
-    
-      svg
-        .selectAll(".chord")
-        .filter((d) => d.target.index !== selected.index)
-        .style("opacity", function (d) {
-          return names[d.source.index] === "" ? 0 : 0.3;
-        });
-    
-      svg
-        .selectAll(".chord")
-        .filter(function (d) {
-          if (d.source.index === selected.index) {
-            selectedIndices.push(d.target.index);
-            return true;
-          } else if (d.target.index === selected.index) {
-            selectedIndices.push(d.source.index);
-            return true;
-          }
-          return false;
-        })
-        .style("fill", "#f55d42");
-    
-      group.style("opacity", function (d) {
-        return selectedIndices.includes(d.index) || d.index === selected.index
-          ? 1
-          : 0.3;
+  // Hover functions
+  function onMouseOver(selected) {
+    let selectedIndices = [];
+
+    svg
+      .selectAll(".chord")
+      .filter((d) => d.target.index !== selected.index)
+      .style("opacity", function (d) {
+        return names[d.source.index] === "" ? 0 : 0.3;
       });
+
+    svg
+      .selectAll(".chord")
+      .filter(function (d) {
+        if (d.source.index === selected.index) {
+          selectedIndices.push(d.target.index);
+          return true;
+        } else if (d.target.index === selected.index) {
+          selectedIndices.push(d.source.index);
+          return true;
+        }
+        return false;
+      })
+      .style("fill", "#f55d42");
+
+    group.style("opacity", function (d) {
+      return selectedIndices.includes(d.index) || d.index === selected.index
+        ? 1
+        : 0.3;
+    });
+
+    let genreTotal = 0
+    for (let i = 0; i < selectedIndices.length; i++) {
+      genreTotal += result_genre['matrix'][selectedIndices[i]][selected.index]
     }
-    
-    function onMouseOut() {
-      group.style("opacity", 1);
-    
-      svg
-        .selectAll(".chord")
-        .style("fill", "#C4C4C4")
-        .style("opacity", function (d) {
-          return names[d.source.index] === "" ? 0 : opacityDefault;
-        });
+
+    var text = names[selected.index] + ": " + genreTotal + '\n'
+
+    for (let i = 0; i < selectedIndices.length; i++) {
+      text += "\n" + names[selectedIndices[i]] + ": " +  result_genre['matrix'][selectedIndices[i]][selected.index]
     }
+
+    let xc = window.innerWidth / 2
+    let xPos = 0
+    if (d3.event.pageX > xc) {
+      xPos = d3.event.pageX + 350;
+    } else {
+      xPos = d3.event.pageX - 350;
+    }
+
+    tooltip
+      .style("left", xPos + "px")
+      .style("top", d3.event.pageY - 170 + "px")
+      .style("display", "inline-block")
+      .html(text);
+  }
+
+  function onMouseOut() {
+    group.style("opacity", 1);
+
+    svg
+      .selectAll(".chord")
+      .style("fill", "#C4C4C4")
+      .style("opacity", function (d) {
+        return names[d.source.index] === "" ? 0 : opacityDefault;
+      });
+
+    tooltip.style("display", "none");
+  }
 }
-
-
-
-
 
 function transpose(m) {
   return m[0].map((x, i) => m.map((x) => x[i]));
@@ -158,8 +182,8 @@ function getDirectorGenreMatrix(dataset) {
     var genres = production.listed_in
       .split(",")
       .map(Function.prototype.call, String.prototype.trim);
-    
-      if (genres[0] != "") {
+
+    if (genres[0] != "") {
       if (!(director in directors)) {
         directors[director] = {};
       }
