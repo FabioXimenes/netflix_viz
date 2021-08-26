@@ -63,6 +63,8 @@ d3.csv(
     original_dataset.push(d);
   }
 
+  console.log(original_dataset)
+
   let facts = crossfilter(original_dataset);
 
   map(facts, original_dataset)

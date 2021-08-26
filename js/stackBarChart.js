@@ -1,6 +1,6 @@
 import { updateMarkers } from './map.js';
 
-import { reds } from '../constants/colors.js';
+import { primaryColor, secondaryColor } from './constants/colors.js';
 
 class StackBarChart extends dc.BarChart {
   legendables() {
@@ -52,7 +52,7 @@ export function productionsTypePerYearChart(facts) {
     .brushOn(true)
     .renderHorizontalGridLines(true)
     .centerBar(true)
-    .ordinalColors([reds[6], reds[3]])
+    .ordinalColors([primaryColor, secondaryColor])
     .on("filtered", function (chart, filter) {
       updateMarkers();
     });

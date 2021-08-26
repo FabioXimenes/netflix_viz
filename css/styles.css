@@ -23,7 +23,7 @@
   justify-content: space-between;
 }
 
-.row .row-content #infoI {
+.row .row-content #leftInfo {
   font-family: 'Urbanist';
   font-size: 20px;
   height: fit-content;
@@ -35,14 +35,14 @@
   margin: auto;
 }
 
-.row .row-content #infoII {
+.row .row-content #rightInfo {
   font-family: 'Urbanist';
   font-size: 20px;
   height: fit-content;
   color: white !important;
-  text-align: justify;
+  text-align: left;
   max-width: 20%;
-  border-left: 2px solid #a3171b;
+  border-right: 2px solid #a3171b;
   padding: 5px;
   margin: auto;
   visibility: visible;
@@ -50,12 +50,13 @@
 
 .row .row-content p #name {
   color: #a3171b;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 .row .row-content p #percentage {
   color: #a3171b;
-  font-size: 30px;
+  font-size: 26px;
 
 }
 
@@ -81,7 +82,7 @@
     margin: auto;
   }
 
-  .row .row-content #infoII{
+  .row .row-content #rightInfo{
     visibility: hidden;
   }
   
@@ -133,6 +134,11 @@
 }
 
 #rating-type-chart, .dc-chart, g.row, text{
-  fill: white !important;
+  fill: white;
   font-family: 'Urbanist';
+}
+
+.dc-chart text.pie-slice{
+  fill: black;
+  font-weight: bold;
 }

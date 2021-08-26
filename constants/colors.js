@@ -1,1 +1,0 @@
-export const reds = d3.schemeReds[9]

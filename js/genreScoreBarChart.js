@@ -1,3 +1,5 @@
+import { primaryColor } from "./constants/colors.js";
+
 export function genreScoreBarChart(dataset) {
   let new_dataset = splitGenres(dataset);
 
@@ -39,10 +41,7 @@ export function genreScoreBarChart(dataset) {
     }
   );
 
-  console.log(scoreGroup.top(Infinity));
-
   let topKScoreGroup = getTops(scoreGroup, 10);
-  console.log(topKScoreGroup.all());
 
   var barChart = dc.rowChart("#genre-score-bar-chart");
   barChart
@@ -50,8 +49,6 @@ export function genreScoreBarChart(dataset) {
     .width(800)
     .margins({ top: 10, right: 50, bottom: 20, left: 100 })
     .labelOffsetX(-5)
-    // .y(d3.scaleBand())
-    // .xUnits(dc.units.ordinal)
     .x(d3.scaleLinear().domain([0, 110]))
 
     // .xAxisLabel("Genre")
@@ -73,7 +70,7 @@ export function genreScoreBarChart(dataset) {
         });
     })
     .elasticX(true)
-    .colors("#ff0202")
+    .colors(primaryColor)
     .dimension(genreDimension)
     .group(topKScoreGroup)
     .valueAccessor(function (d) {

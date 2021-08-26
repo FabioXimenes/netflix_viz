@@ -1,4 +1,4 @@
-import { reds } from '../constants/colors.js';;
+import { reds } from './constants/colors.js';;
 
 var circlesLayer;
 var latLongMap;
