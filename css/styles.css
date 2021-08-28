@@ -167,8 +167,9 @@
   display: none;
   min-width: 80px;
   height: auto;
-  background: none repeat scroll 0 0 #ffffff;
-  border: 1px solid #6F257F;
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
   padding: 6px;
   text-align: left;
   white-space: pre-line;
@@ -188,4 +189,18 @@
   color: #a3171b;
   font-size: 26px;
   font-weight: bold;
+}
+
+#chordTooltip {
+  position: absolute;
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  border: solid 1px darkgray;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  pointer-events: none;
 }

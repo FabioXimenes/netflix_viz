@@ -32,15 +32,14 @@ export function chord_diagram(dataset) {
   const svg = d3
     .select("#chord")
     .append("svg")
-    .attr("width", 600)
-    .attr("height", 600)
+    .attr("width", 700)
+    .attr("height", 540)
     .append("g")
-    .attr("transform", "translate(300,300)");
+    .attr("transform", "translate(350,220)");
 
   const chords = chord(result_genre["matrix"]);
 
   const group = svg.append("g").selectAll("g").data(chords.groups).join("g");
-  var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 
   //////////////////// Draw outer Arcs ///////////////////////
   ////////////////////////////////////////////////////////////
@@ -100,7 +99,7 @@ export function chord_diagram(dataset) {
 
   // Hover functions
   function onMouseOver(selected) {
-    let selectedIndices = [];
+    let targetIndices = [];
 
     svg
       .selectAll(".chord")
@@ -113,10 +112,10 @@ export function chord_diagram(dataset) {
       .selectAll(".chord")
       .filter(function (d) {
         if (d.source.index === selected.index) {
-          selectedIndices.push(d.target.index);
+          targetIndices.push(d.target.index);
           return true;
         } else if (d.target.index === selected.index) {
-          selectedIndices.push(d.source.index);
+          targetIndices.push(d.source.index);
           return true;
         }
         return false;
@@ -124,35 +123,21 @@ export function chord_diagram(dataset) {
       .style("fill", "#f55d42");
 
     group.style("opacity", function (d) {
-      return selectedIndices.includes(d.index) || d.index === selected.index
+      return targetIndices.includes(d.index) || d.index === selected.index
         ? 1
         : 0.3;
     });
 
-    let genreTotal = 0
-    for (let i = 0; i < selectedIndices.length; i++) {
-      genreTotal += result_genre['matrix'][selectedIndices[i]][selected.index]
-    }
-
-    var text = names[selected.index] + ": " + genreTotal + '\n'
-
-    for (let i = 0; i < selectedIndices.length; i++) {
-      text += "\n" + names[selectedIndices[i]] + ": " +  result_genre['matrix'][selectedIndices[i]][selected.index]
-    }
-
-    let xc = window.innerWidth / 2
-    let xPos = 0
-    if (d3.event.pageX > xc) {
-      xPos = d3.event.pageX + 350;
-    } else {
-      xPos = d3.event.pageX - 350;
-    }
-
-    tooltip
-      .style("left", xPos + "px")
-      .style("top", d3.event.pageY - 170 + "px")
-      .style("display", "inline-block")
-      .html(text);
+    d3.select(this).style("cursor", "pointer");
+    const rect = this.getBoundingClientRect();
+    showTooltip(
+      selected.index,
+      targetIndices,
+      result_genre["matrix"],
+      names,
+      d3.event.pageX,
+      d3.event.pageY
+    );
   }
 
   function onMouseOut() {
@@ -165,7 +150,9 @@ export function chord_diagram(dataset) {
         return names[d.source.index] === "" ? 0 : opacityDefault;
       });
 
-    tooltip.style("display", "none");
+    d3.select(this).style("cursor", "#none");
+
+    hideTooltip();
   }
 }
 
@@ -300,6 +287,50 @@ function getDirectorGenreMatrix(dataset) {
 
 function add(accumulator, a) {
   return accumulator + a;
+}
+
+function showTooltip(source, targets, matrix, names, x, y) {
+  const offset = 10;
+  const t = d3.select("#chordTooltip");
+
+  var text = "";
+  let genreTotal = 0;
+  for (let i = 0; i < targets.length; i++) {
+    genreTotal += matrix[targets[i]][source];
+  }
+
+  var text = names[source] + ": " + genreTotal + "\n";
+  t.select("#chordSource").text(text);
+
+  for (let i = 0; i < targets.length; i++) {
+    text = names[targets[i]] + ": " + matrix[targets[i]][source];
+    t.select("#chordTargets")
+      .append("span")
+      .attr('id', 'tempTarget')
+      .html(text + "<br>");
+  }
+
+  const rect = t.node().getBoundingClientRect();
+  const w = rect.width;
+  const h = rect.height;
+
+  console.log(x)
+  console.log(window.innerWidth/2)
+
+  if (x > window.innerWidth/2) {
+    x = x + 250;
+  } else {
+    x = x - 400;
+  }
+
+  t.style("display", "inline-block")
+    .style("left", x + "px")
+    .style("top", y - offset + "px");
+}
+
+function hideTooltip() {
+  d3.select("#chordTooltip").style("display", "none");
+  d3.select("#chordTooltip").selectAll("#tempTarget").remove();
 }
 
 let chord = d3
