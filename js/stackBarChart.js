@@ -32,18 +32,11 @@ export function productionsTypePerYearChart(facts) {
     () => ({})
   );
 
-//   let rowtip = d3tip()
-//     .attr("class", "d3-tip")
-//     .offset([-10, 0])
-//     .html(function (d) {
-//       return d.key + ": " + d.value;
-//     });
-
   let yearsAddedStackBarChart = new StackBarChart("#years-release-chart");
   yearsAddedStackBarChart
     .width(800)
     .height(200)
-    .margins({ top: 40, right: 50, bottom: 20, left: 50 })
+    .margins({ top: 40, right: 50, bottom: 40, left: 50 })
     .dimension(addedYearDimension)
     .group(addedYearTypeCount, "Movie", sel_stack("Movie"))
     .gap(2)
@@ -51,16 +44,13 @@ export function productionsTypePerYearChart(facts) {
     .elasticY(true)
     .brushOn(true)
     .renderHorizontalGridLines(true)
+    .xAxisLabel('Years')
+    .yAxisLabel('Total')
     .centerBar(true)
     .ordinalColors([primaryColor, secondaryColor])
     .on("filtered", function (chart, filter) {
       updateMarkers();
     });
-
-//   d3.selectAll("#years-release-chart g.row")
-//     .call(rowtip)
-//     .on("mouseover", rowtip.show)
-//     .on("mouseout", rowtip.hide);
 
     yearsAddedStackBarChart.legend(dc.legend());
     yearsAddedStackBarChart.stack(addedYearTypeCount, 'TV Show', sel_stack('TV Show'));

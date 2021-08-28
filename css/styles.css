@@ -23,29 +23,34 @@
   justify-content: space-between;
 }
 
-.row .row-content #leftInfo {
+.row .row-content #hiddenInfo {
   font-family: 'Urbanist';
   font-size: 20px;
   height: fit-content;
   color: white !important;
-  /* text-align: justify; */
   max-width: 20%;
-  border-left: 2px solid #a3171b;
   padding: 5px;
   margin: auto;
 }
 
-.row .row-content #rightInfo {
+.row .row-content #visibleInfo {
   font-family: 'Urbanist';
   font-size: 20px;
   height: fit-content;
   color: white !important;
   text-align: left;
   max-width: 20%;
-  border-right: 2px solid #a3171b;
   padding: 5px;
   margin: auto;
   visibility: visible;
+}
+
+.row .row-content .rightInfo {
+  border-left: 2px solid #a3171b;
+}
+
+.row .row-content .leftInfo {
+  border-right: 2px solid #a3171b;
 }
 
 .row .row-content p #name {
@@ -85,7 +90,7 @@
     margin: auto;
   }
 
-  .row .row-content #rightInfo{
+  .row .row-content #visibleInfo{
     visibility: hidden;
   }
 
@@ -167,4 +172,20 @@
   padding: 6px;
   text-align: left;
   white-space: pre-line;
+}
+
+#mapInfo {
+  font-family: 'Urbanist';
+  font-size: 20px;
+  height: fit-content;
+  color: white !important;
+  text-align: left;
+  padding: 5px;
+  visibility: visible;
+}
+
+#mapInfo span {
+  color: #a3171b;
+  font-size: 26px;
+  font-weight: bold;
 }

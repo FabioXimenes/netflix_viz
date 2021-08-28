@@ -55,14 +55,15 @@
           <div class='row'>
             <h5 id='title'>Productions types</h5>
             <div class='row-content' class="col-6">
-              <p id='leftInfo'>There are more than <span id='name'>7,500</span> Movies and TV Shows now on Netflix. <span id='name'>Movies</span> represent more almost <span id='name'>70%</span> of all productions on the platform.</p>
+              <p id='hiddenInfo' class="leftInfo">There are more than <span id='name'>7,500</span> Movies and TV Shows now on Netflix. <span id='name'>Movies</span> represent more almost <span id='name'>70%</span> of all productions on the platform.</p>
               <div id='pie-chart'></div>
             </div>
           </div>
 
           <div class='row'>
+            <h5 id='title'> Productions by country</h5>
+            <p id='mapInfo'>The <span>United States</span> are the country with most productions on Netflix with <span>3250</span> productions, followed by <span>X</span> and <span>Y</span> with <span>X</span> and <span>Y</span> productions respectively.</p>
             <div class='row-content-map' id='map-chart'>
-              <h5 id='title'> Productions by country</h5>
               <div id="mapid" class="single-col"></div>
             </div>
           </div>
@@ -70,24 +71,24 @@
           <div class='row'>
             <h5 id='title'> Productions by release year</h5>
             <div class='row-content'  class="col-6">
+              <p id='visibleInfo' class="leftInfo">The last <span id='name'>5 years</span> holds <span id='percentage'>52%</span> of all available productions, around 3,998 titles.</p>
               <div id='years-release-chart'></div>
-              <p id='rightInfo'>The last <span id='name'>5 years</span> holds <span id='percentage'>52%</span> of all available productions, around 3,998 titles.</p>
             </div>
           </div>
 
           <div class='row'>
             <h5 id='title'>Productions by Parental Guidance </h5>
             <div class='row-content' class="col-6">
-              <p id='leftInfo'>In general, productions with <span id='name'>ADULT</span> and <span id='name'>FREE</span> parental guidance occupy <span id='percentage'>36.9%</span> and <span id='percentage'>0.5%</span>, respectively.</p>
               <div id='rating-type-chart'></div>
+              <p id='hiddenInfo' class="rightInfo">In general, <span id='name'>ADULT</span> (<span id='name'>TV-MA</span>) rating represent <span id='percentage'>36.9%</span> of all productions and only <span id='percentage'>0.5%</span> have <span id='name'>G</span> rating which are suitable for <span id='name'>all ages</span>.</p>
             </div>
           </div>
       
           <div class='row'>
             <h5 id='title'>Netflix movie watch time grow </h5>
             <div class='row-content' class="col-6">
+              <p id='visibleInfo' class="leftInfo">Watching all <span id='name'>5,377 movies</span> would take <span id='name'>533,979 minutes</span>. In other words, it would take over a year, which has approximately <span id='name'>525,600 minutes</span>.</p>
               <div id='durationPerYear-line-chart'></div>
-              <p id='rightInfo'>Watching all <span id='name'>5,377 movies</span> would take <span id='name'>533,979 minutes</span>. In other words, it would take over a year, which has approximately <span id='name'>525,600 minutes</span>.</p>
             </div>
           </div>
           
@@ -95,13 +96,15 @@
             <h5 id='title'>Genres x Tomatometer Score</h5>
             <div class='row-content' class="col-6">
               <div id='genre-score-bar-chart'></div>
-              <p id='rightInfo'>For the Top-10 presented, the <span id='name'>mean</span>, <span id='name'>variance</span> and <span id='name'>standard deviation</span> between genders were <span id='name'>80.6</span>, <span id='name'>26.04</span> and <span id='name'>5.103</span>, respectively.</p>
+              <p id='visibleInfo' class="rightInfo">For the Top-10 presented, the <span id='name'>mean</span>, <span id='name'>variance</span> and <span id='name'>standard deviation</span> between genders were <span id='name'>80.6</span>, <span id='name'>26.04</span> and <span id='name'>5.103</span>, respectively.</p>
             </div>
         </div>
           
-        <div class='row' id="chord">
-          <h5 id='title'>The most preferred genres of directors</h5>
+        <div class='row'>
+          <h5 id='title'>The most produced genres of directors with at least 6 productions on Netflix</h5>
           <div class='row-content' class="col-6">
+            <p id='visibleInfo' class="leftInfo"><span id='name'>Dramas</span> and <span id='name'>Comedies</span> are the most produced genres by directors that have at least <span id='name'>6</span> productions on Netflix</span>.</p>
+            <div id="chord" ></div>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 export function movieDurationGrowthLineChart(facts) {
-  let width = 800
+  let width = 650
 
 	let dateAddedDimension = facts
     .dimension((d) => d.parsedDate)
@@ -26,11 +26,13 @@ export function movieDurationGrowthLineChart(facts) {
   durationPerYearLineChart
     .width(width)
     .height(500)
-    .margins({ top: 30, right: 50, bottom: 25, left: 50 })
+    .margins({ top: 30, right: 50, bottom: 40, left: 70 })
     .dimension(dateAddedDimension)
     .renderArea(true)
     .x(xDateAddedScale)
     .xUnits(d3.timeDays)
+    .xAxisLabel('Years')
+    .yAxisLabel('Total minutes')
     .elasticY(true)
     .renderHorizontalGridLines(true)
     .legend(

@@ -106,7 +106,7 @@ function renderCircles() {
         }
       );
       circle.bindPopup(
-        "Country: " + country + "<br>Amount: " + valuesPerCountry[country][0]
+        "<b>Country</b>: " + country + "<br><b>Number of Productions</b>: " + valuesPerCountry[country][0]
       );
       circle.publicid = country; //para a interação na outra direção
       circle.on("click", function (params) {

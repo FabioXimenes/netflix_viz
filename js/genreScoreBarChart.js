@@ -49,10 +49,7 @@ export function genreScoreBarChart(dataset) {
     .width(800)
     .margins({ top: 10, right: 50, bottom: 20, left: 100 })
     .labelOffsetX(-5)
-    .x(d3.scaleLinear().domain([0, 110]))
-
-    // .xAxisLabel("Genre")
-    // .yAxisLabel("Average")
+    .x(d3.scaleLinear().range([0, 100]).domain([0, 100]))
     .on("renderlet", function (chart) {
       chart
         .selectAll("g.row  text")
