@@ -14,7 +14,7 @@ export function genreScoreBarChart(dataset) {
         if (p.count == 0) {
           p.average = 0;
         } else {
-          p.average = parseInt(p.total / p.count);
+          p.average = parseFloat(p.total / p.count).toFixed(2);
         }
       }
 
@@ -27,7 +27,7 @@ export function genreScoreBarChart(dataset) {
         if (p.count == 0) {
           p.average = 0;
         } else {
-          p.average = parseInt(p.total / p.count);
+          p.average = parseFloat(p.total / p.count).toFixed(2);
         }
       }
       return p;
