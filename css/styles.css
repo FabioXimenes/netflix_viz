@@ -68,7 +68,7 @@
   min-width: 40% !important;
 }
 
-@media (max-width:1300px) {
+@media (max-width:1160px) {
   #body {
     padding: 0 5% 0 5%;
   }
@@ -104,7 +104,7 @@
   min-width: 100%;
 }
 
-.row div svg {
+.row .row-content div svg {
   align-self: center;
   max-width: 100%;
   margin: 20px;
