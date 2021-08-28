@@ -47,9 +47,8 @@ export function genreScoreBarChart(dataset) {
   barChart
     .height(300)
     .width(800)
-    .margins({ top: 10, right: 50, bottom: 20, left: 100 })
+    .margins({ top: 10, right: 70, bottom: 20, left: 100 })
     .labelOffsetX(-5)
-    .x(d3.scaleLinear().range([0, 100]).domain([0, 100]))
     .on("renderlet", function (chart) {
       chart
         .selectAll("g.row  text")
@@ -67,6 +66,7 @@ export function genreScoreBarChart(dataset) {
         });
     })
     .elasticX(true)
+    .renderTitle(true)
     .colors(primaryColor)
     .dimension(genreDimension)
     .group(topKScoreGroup)
@@ -74,6 +74,9 @@ export function genreScoreBarChart(dataset) {
       return d.value.average;
     })
     .ordering((d) => -d.value.average);
+
+    barChart.xAxis().tickFormat(function (v) {return v + '%';});
+    barChart.xAxis().tickValues([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
 }
 
 function splitGenres(dataset) {
