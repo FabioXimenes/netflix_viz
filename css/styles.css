@@ -223,3 +223,9 @@
   border-radius: 10px;
   pointer-events: none;
 }
+
+#icon {
+  font-size: 20px;
+  color: #E50914 !important;
+  margin-left: 5px;
+}
