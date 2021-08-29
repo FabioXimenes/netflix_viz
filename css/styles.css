@@ -2,6 +2,10 @@
   background-color: #111111; 
 }
 
+#header #banner_image{
+  min-width: 850px;
+}
+
 #body {
   width: 100%;
   min-width: 850px;
@@ -73,29 +77,26 @@
     padding: 0 5% 0 5%;
   }
   
-  .row .row-content #years-release-chart {
-    align-self: center;
-    min-width: 100%;
+  .row .row-content {
+    display: flex;
+    flex-direction: column;
   }
 
-  .row .row-content #durationPerYear-line-chart {
-    align-self: center;
-    min-width: 100%;
-    margin: auto;
+  .row .row-content .rightInfo {
+    border-left: 2px solid #a3171b;
+    min-width: 70%;
+    height: auto;
+  }
+  
+  .row .row-content .leftInfo {
+    border-right: 2px solid #a3171b;
+    min-width: 70%;
+    height: auto;
   }
 
-  .row .row-content #genre-score-bar-chart {
-    align-self: center;
-    min-width: 100%;
-    margin: auto;
-  }
-
-  .row .row-content #visibleInfo{
-    visibility: hidden;
-  }
-
-  .row .row-content #pie-chart {
-    min-width: 60% !important;
+  .row .row-content div {
+    margin: auto !important;
+    min-width: fit-content;
   }
   
 }
