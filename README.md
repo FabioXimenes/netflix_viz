@@ -7,3 +7,5 @@ Para executar o projeto basta rodar o comando abaixo na pasta raiz do projeto.
 ```sh
 python3 -m http.server
 ```
+
+É possível acessar o projeto acessando este [link](https://fabioximenes.github.io/netflix_viz/)
