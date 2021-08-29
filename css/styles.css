@@ -2,11 +2,30 @@
   background-color: #111111; 
 }
 
+#header #banner_image{
+  min-width: 850px;
+}
+
 #body {
   width: 100%;
   min-width: 850px;
   overflow: auto;
   padding: 0 10% 0 10%;
+}
+
+#footer {
+  border-top: 7px solid #a3171b;
+  font-family: 'Urbanist';
+}
+
+#footer span {
+  color: white;
+}
+
+#footer img {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
 }
 
 .row {
@@ -73,29 +92,29 @@
     padding: 0 5% 0 5%;
   }
   
-  .row .row-content #years-release-chart {
-    align-self: center;
-    min-width: 100%;
+  .row .row-content {
+    display: flex;
+    flex-direction: column;
   }
 
-  .row .row-content #durationPerYear-line-chart {
-    align-self: center;
-    min-width: 100%;
-    margin: auto;
+  .row .row-content .rightInfo {
+    border-left: 2px solid #a3171b;
+    min-width: 70%;
+    height: auto;
+    border: None;
+  }
+  
+  .row .row-content .leftInfo {
+    border-right: 2px solid #a3171b;
+    min-width: 70%;
+    height: auto;
+    border: None;
   }
 
-  .row .row-content #genre-score-bar-chart {
-    align-self: center;
-    min-width: 100%;
-    margin: auto;
-  }
 
-  .row .row-content #visibleInfo{
-    visibility: hidden;
-  }
-
-  .row .row-content #pie-chart {
-    min-width: 60% !important;
+  .row .row-content div {
+    margin: auto !important;
+    min-width: fit-content;
   }
   
 }
@@ -203,4 +222,10 @@
   -moz-border-radius: 10px;
   border-radius: 10px;
   pointer-events: none;
+}
+
+#icon {
+  font-size: 20px;
+  color: #E50914 !important;
+  margin-left: 5px;
 }
