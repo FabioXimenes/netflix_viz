@@ -13,6 +13,21 @@
   padding: 0 10% 0 10%;
 }
 
+#footer {
+  border-top: 7px solid #a3171b;
+  font-family: 'Urbanist';
+}
+
+#footer span {
+  color: white;
+}
+
+#footer img {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+}
+
 .row {
   display: flex;
   flex-direction: column;
@@ -86,13 +101,16 @@
     border-left: 2px solid #a3171b;
     min-width: 70%;
     height: auto;
+    border: None;
   }
   
   .row .row-content .leftInfo {
     border-right: 2px solid #a3171b;
     min-width: 70%;
     height: auto;
+    border: None;
   }
+
 
   .row .row-content div {
     margin: auto !important;
